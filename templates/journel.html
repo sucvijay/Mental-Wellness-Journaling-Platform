@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Entry</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom styles -->
+    <style>
+        /* Custom CSS for the journal entry form */
+        .journal-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Journal Entry</h1>
+        <form action="/task" method="post" class="journal-form">
+            <!-- Date and Time -->
+            <div class="form-group">
+                <label for="journal-date">Date:</label>
+                <input name="date" type="date" class="form-control" id="journal-date" required>
+            </div>
+            <div class="form-group">
+                <label for="journal-time">Time:</label>
+                <input name="time" type="time" class="form-control" id="journal-time" required>
+            </div>
+            <!-- Journal Entry -->
+            <div class="form-group">
+                <label for="journal-entry">Journal Entry:</label>
+                <textarea name="journel" class="form-control" id="journal-entry" rows="4" required></textarea>
+            </div>
+            <!-- Submit Button -->
+            <button class="btn btn-primary">Save Journal Entry</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Function to set current date and time
+        function setCurrentDateTime() {
+            var currentDate = new Date();
+            var year = currentDate.getFullYear();
+            var month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            var day = String(currentDate.getDate()).padStart(2, '0');
+            var hours = String(currentDate.getHours()).padStart(2, '0');
+            var minutes = String(currentDate.getMinutes()).padStart(2, '0');
+
+            var dateInput = document.getElementById('journal-date');
+            var timeInput = document.getElementById('journal-time');
+
+            dateInput.value = `${year}-${month}-${day}`;
+            timeInput.value = `${hours}:${minutes}`;
+        }
+
+        // Call the function when the page loads
+        window.onload = setCurrentDateTime;
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom styles -->
+    <style>
+        body {
+            background-color: #3498db; /* Customize background color */
+        }
+
+        .container {
+            background-color: #ffffff; /* Customize container background color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px; /* Adjust logo size */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333; /* Customize header text color */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .toggle-password {
+            font-size: 18px; /* Adjust button font size */
+        }
+
+        .btn-login {
+            text-align: center;
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="logo">
+                    <img src="your-logo-url.png" alt="Custom Logo">
+                </div>
+                <h2>User Login</h2>
+                <!-- Login Form -->
+                <form action="/login" method="post">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary btn-sm toggle-password" data-target="#password">&#128065;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+                <!-- End of Login Form -->
+
+                <hr>
+
+                <!-- "Register" button leads to the registration page (register.html) -->
+                
+                <div class="btn-login">
+                    <a href="/register" class="btn btn-primary btn-block" >Register</a>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a href="forgot_password.html">Forgot Password?</a>
+    </div>
+
+    <!-- Link to Bootstrap JS and jQuery (required for Bootstrap functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript to toggle password visibility -->
+    <script>
+        const passwordInputs = document.querySelectorAll('.toggle-password');
+        
+        passwordInputs.forEach((button) => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+                const targetInput = document.querySelector(targetId);
+                
+                if (targetInput.type === 'password') {
+                    targetInput.type = 'text';
+                } else {
+                    targetInput.type = 'password';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

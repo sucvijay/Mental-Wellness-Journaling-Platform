@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom styles -->
+    <style>
+        body {
+            background-color:#3498db; /* Customize background color */
+        }
+
+        .container {
+            background-color: #fff; /* Customize container background color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px; /* Adjust logo size */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333; /* Customize header text color */
+        }
+
+        .toggle-password {
+            font-size: 18px; /* Adjust button font size */
+        }
+
+        .btn-signin {
+            margin-top: 10px;
+            text-align: center;
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="logo">
+                    <img src="your-logo-url.png" alt="Custom Logo">
+                </div>
+                <h2>User Registration</h2>
+                
+                <form action="/create" method="post">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary btn-sm toggle-password" data-target="#password">&#128065;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary btn-sm toggle-password" data-target="#confirm-password">&#128065;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select class="form-control" id="gender" name="gender" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date-of-birth">Date of Birth</label>
+                        <input type="date" class="form-control" id="date-of-birth" name="date-of-birth" required>
+                    </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+                    
+                <!-- End of Registration Form -->
+
+                <hr>
+
+                <!-- "Sign In" button leads to the second page (signin.html) -->
+              <!-- ... (previous code) -->
+<!-- "Sign In" button leads to the login page (login.html) using JavaScript -->
+            <div class="btn-signin">
+               <button class="btn btn-primary btn-block" onclick="location.href='login.html';">Sign In</button>
+             </div>
+<!-- ... (rest of the code) -->
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to Bootstrap JS and jQuery (required for Bootstrap functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript to toggle password visibility -->
+    <script>
+        const passwordInputs = document.querySelectorAll('.toggle-password');
+        
+        passwordInputs.forEach((button) => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+                const targetInput = document.querySelector(targetId);
+                
+                if (targetInput.type === 'password') {
+                    targetInput.type = 'text';
+                } else {
+                    targetInput.type = 'password';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

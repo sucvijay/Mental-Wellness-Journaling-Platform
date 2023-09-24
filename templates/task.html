@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Tasks</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS for the flower animation -->
+    <style>
+        /* Custom CSS for the flower animation */
+        .flower-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .flower {
+            width: 100px;
+            height: 100px;
+            background-color: #f2c420;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .flower-text {
+            display: none;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .flower:hover {
+            transform: scale(1.2);
+        }
+
+        .flower:hover .flower-text {
+            display: block;
+        }
+
+        /* Center the content vertically and horizontally */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Style the forms */
+        form {
+            margin-top: 20px;
+        }
+
+        /* Add some padding and background color */
+        .container {
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style the buttons */
+        button[type="submit"] {
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Journal Tasks</h1>
+        <p>Based on your journal entry, here's a task: <b>{{task}}</b> </p>
+
+        <!-- Sample journal task with a blooming flower (you can generate this dynamically from your backend) -->
+        <div class="flower-container">
+            <div class="flower">
+                <div class="flower-text">Task 1</div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="text-center">Upload Completed Task Picture</h1>
+
+        <!-- Task 1 -->
+        <form action="/success" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="taskImage">Task 1:</label>
+                <input type="file" class="form-control-file" id="taskImage" name="taskImage" accept="image/*">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Mark as Complete</button>
+        </form>
+
+        <h2 class="text-center">Feedback</h2>
+        <form action="/feedback" method="POST">
+            <div class="form-group">
+                <label for="feedback">How did the task help you with your mental health?</label>
+                <textarea class="form-control" id="feedback" name="feedback" rows="4" cols="50" placeholder="Share your thoughts"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit Feedback</button>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
